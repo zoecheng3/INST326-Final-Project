@@ -17,6 +17,7 @@ class Pokemon:
 def main():
   
 def get_rand_poke(poke_list):
+  return random.choice(poke_list)
   
 def guess_poke(self):
   
@@ -26,4 +27,8 @@ def end_game(guess, poke, correctly_guessed):
     print(f"Correct! The Pokemon is {poke}")
   else:
     print(f"Game Over! The correct Pokemon was {poke}")
+  
+ 
+if __name__ == '__main__':
+  main()
   
