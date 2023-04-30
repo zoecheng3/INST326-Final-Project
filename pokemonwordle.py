@@ -1,3 +1,6 @@
+import pandas as pd
+import random
+
 class Pokemon:
   def __init__(self,fire, grass, water):
     self.fire = fire
