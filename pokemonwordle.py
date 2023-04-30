@@ -18,7 +18,8 @@ def main():
   
 def get_rand_poke(poke_list):
   
-def guess_poke():
+def guess_poke(self):
+  
   
 def end_game(guess, poke, correctly_guessed):
   if correctly_guessed:
