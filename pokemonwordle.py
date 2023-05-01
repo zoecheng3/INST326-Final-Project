@@ -1,18 +1,6 @@
 import pandas as pd
 import random
 
-class Pokemon:
-  def __init__(self,fire, grass, water):
-    self.fire = fire
-    self.grass = grass
-    self.water = water
-    
-
-  def attribute_checker(self, object):
-    self.object = object
-    if self.object == self.fire:
-      print('Youve chosen a fire pokemon')
-
 
 def play_game():
   correct_answer = random.choice()
@@ -35,10 +23,7 @@ def play_game():
                      
                      
                      
-                     
-def get_rand_poke(poke_list):
-  return random.choice(poke_list)
-  
+                  
   
   
 
