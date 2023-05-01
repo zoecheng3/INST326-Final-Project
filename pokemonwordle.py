@@ -33,5 +33,24 @@ def play_game():
 
  
 if __name__ == '__main__':
+  
+  
+  def pokemon_wordle(file):
+  with open('pokemon.csv', encoding = 'utf -8') as f:
+    df = pd.read_csv(f)
+    new_df = df.drop(['HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
+                 axis = 1)
+    for name in new_df['Name']:
+      game_choice = rand.choice(new_df['Name'])
+  return game_choice
+
+
+  test = pokemon_wordle
+
+    
+
+
+
+
   main()
   
