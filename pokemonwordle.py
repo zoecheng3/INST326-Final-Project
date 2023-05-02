@@ -7,7 +7,7 @@ import sys
 test test
 
 def play_game():
-  correct_answer = random.choice()
+  correct_answer = random.choice() #when i think about it, i think this variable should be equal to the function that chooses a random pokmon from the dataframe
   lives = 5
   while lives > 0:
     guess = input("Guess a Pokemon: ")
