@@ -34,7 +34,7 @@ def play_game():
         if play_again == "y":
             play_game()
         else:
-            break ;print("Thanks for playing!")
+            break ; print("Thanks for playing!")
             
       else:
         lives -=1
@@ -52,7 +52,8 @@ def play_game():
 
 
 
-                     
+      #Here is how you choose a specific index from the sample that is randomly chosesn. This syntax will be very useful for our hint class
+      ---->  new_df.sample().iloc[0]['Name']
                      
                      
             if __name__ == '__main__':
