@@ -68,3 +68,88 @@ print(poke)
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #Heres what I was working on with hints
+  #This will be the test code for the function
+
+import pandas as pd
+import random as rand
+
+
+"""def pokemon_wordle(file):
+  with open('pokemon.csv', encoding = 'utf -8') as f:
+    df = pd.read_csv(f)
+    new_df = df.drop(['#','HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
+                 axis = 1)
+
+    raw_sample = new_df.sample()
+    poke_stats = dict(sample_info.iloc[0])
+    pokemon = raw_sample.sample().iloc[0]['Name']
+
+
+  return pokemon"""
+
+def play_game():
+  with open('pokemon.csv', encoding = 'utf -8') as f:
+    df = pd.read_csv(f)
+    new_df = df.drop(['#','HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
+                 axis = 1)
+    raw_sample = new_df.sample()
+    poke_stats = dict(sample_info.iloc[0])
+    pokemon = raw_sample.sample().iloc[0]['Name']
+  
+  correct_answer = pokemon
+  #print(f'Correct answer: {correct_answer}')
+  
+  lives = 5
+
+  
+  while lives > 0:
+    player_guess = input('Guess the pokemon: ')
+    if player_guess == correct_answer:
+        print(f"Correct! The Pokemon is {correct_answer}")
+        play_again = input("Do you want to play again? (y/n)").lower()
+        if play_again == "y":
+            play_game()
+
+    elif player_guess != correct_answer: 
+      lives -= 1
+      hint = poke_stats['Type 1']
+      print(f'Good guess but not quite. You have {lives} left! Heres a hint! Youre looking for a {hint} type pokemon')
+
+    elif player_guess != correct_answer:
+      lives-= 1
+      hint2 = poke_stats['Generation']
+      print(f'Not quite. You have {lives} left. Heres another hint: The pokemon is a {hint2} generation')
+
+    elif player_guess != correct_answer:
+      lives -= 1
+      hint3 = poke_stats['Name'][0]
+      print(f'Nope. Heres your final hint: The pokemon begins with the letter {hint3} ')
+            
+    else:
+        lives -=1 
+        print(f"Incorrect, you have {lives} guesses left")
+        
+    if lives == 0 and player_guess != correct_answer:
+        print(f"You ran out of guesses, the Pokemon was {correct_answer}")
+        play_again = input("Do you want to play again? (y/n)").lower()
+        if play_again == "y":
+            play_game()
+        else: 
+          print("Thanks for playing!")
+          print(poke_stats)
+          
+            
+      
+  
+  
+  
