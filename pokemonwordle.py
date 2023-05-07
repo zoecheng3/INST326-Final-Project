@@ -55,7 +55,14 @@ def play_game():
       #Here is how you choose a specific index from the sample that is randomly chosesn. This syntax will be very useful for our hint class
       ---->  new_df.sample().iloc[0]['Name']
                      
-                     
+           #this lets us get the entire row of information from the sample and also just take the name of that same so we can compare it with the player's guess
+          sample_info = new_df.sample()
+l = dict(sample_info.iloc[0])
+poke = sample_info.sample().iloc[0]['Name']
+print(l)
+print(poke)
+
+
             if __name__ == '__main__':
   
   
