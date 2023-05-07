@@ -153,3 +153,28 @@ def play_game():
   
   
   
+#Beginning of a hint class
+
+ class Hint:
+    def __init__(self, pokemon_file):
+        self.pokemon_file = pokemon_file
+    
+    def give_hint(self, player_answer):
+        with open(self.pokemon_file, 'r') as file:
+                values = line.strip().split(',’) 
+                if player_answer.lower() == values[1].lower():
+                    pokemon_type = values[2]
+                    generation = values[3]
+                    legendary = values[12]
+                    hint = f"The Pokemon is a {pokemon_type} type from generation {generation}."
+                    if legendary == 'True':
+                        hint = "It is a legendary Pokemon."
+                    else:
+                        hint = "It is not a legendary Pokemon."
+                    return hint
+        return "Sorry, I couldn't find that Pokemon. Please try again."
+Give_hint= HintGiver('pokemon.csv')
+player_answer = input("Guess the Pokemon: ")
+hint = give_hint.give_hint(player_answer)
+print(hint)
+
