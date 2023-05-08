@@ -1,92 +1,21 @@
 #This will be the test code for the function
-
 import pandas as pd
 import random as rand
-def pokemon_wordle(file):
-  with open('pokemon.csv', encoding = 'utf -8') as f:
-    df = pd.read_csv(f)
-    new_df = df.drop(['HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
-                 axis = 1)
-    
-    poke_choice = list(new_df['Name'])
-
-    for name in poke_choice:
-      game_choice = rand.choice(poke_choice)
-  return game_choice
-
-    
-
-
-
-def play_game():
-  
-  testf = 'pokemon.csv'
-  correct_answer = pokemon_wordle(testf)
-  print(f'Correct answer: {correct_answer}')
-  lives = 5
-
-  
-  while lives > 0:
-      answer = input('Guess the pokemon: ') 
-      if answer == correct_answer:
-        print(f"Correct! The Pokemon is {correct_answer}")
-        play_again = input("Do you want to play again? (y/n)").lower()
-        if play_again == "y":
-            play_game()
-        else:
-            break ; print("Thanks for playing!")
-            
-      else:
-        lives -=1
-        print(f"Incorrect, you have {lives} guesses left")
-        
-      if lives == 0 and answer != correct_answer:
-        print(f"You ran out of guesses, the Pokemon was {correct_answer}")
-        play_again = input("Do you want to play again? (y/n)").lower()
-        if play_again == "y":
-            play_game()
-        else:
-            break ;print("Thanks for playing!")
-      
-      
-
-
-
-      #Here is how you choose a specific index from the sample that is randomly chosesn. This syntax will be very useful for our hint class
-      ---->  new_df.sample().iloc[0]['Name']
-                     
-           #this lets us get the entire row of information from the sample and also just take the name of that same so we can compare it with the player's guess
-          sample_info = new_df.sample()
-l = dict(sample_info.iloc[0])
-poke = sample_info.sample().iloc[0]['Name']
-print(l)
-print(poke)
-
-
-            if __name__ == '__main__':
-  
-  #Most updated function
-  
- import pandas as pd
-import random as rand
 
 
 
 
 def play_game():
-  with open('pokemon.csv', encoding = 'utf -8') as f:
+  with open('pokemon3.csv', encoding = 'utf -8') as f:
     df = pd.read_csv(f)
     new_df = df.drop(['#','HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
                  axis = 1)
     sample_info = new_df.sample()
-    l = dict(sample_info.iloc[0])
+    c = dict(sample_info.iloc[0])
     poke = sample_info.sample().iloc[0]['Name']
-    print(l)
-    print(poke)
   correct_answer = poke
-  #print(f'Correct answer: {correct_answer}')
   
-  lives = 5
+  lives = 8
 
   
   while lives > 0:
@@ -96,16 +25,47 @@ def play_game():
         play_again = input("Do you want to play again? (y/n)").lower()
         if play_again == "y":
             play_game()
-
+        else:
+          break
     elif player_guess != correct_answer: 
       lives -= 1
-      hint = l['Type 1']
-      hint2 = l['Type 2']
-      hint3 = l['Generation']
-      hint4 = l['Name'][0]
+      hint = c['Name'][0]
       matching_row = new_df.loc[new_df['Name'] == player_guess]
-      print(matching_row)
-      print(f'Good guess but not quite. You have {lives} left! Heres a hint! Youre looking for a {hint}/{hint2} type pokemon{hint3}') 
+      g = dict(matching_row.iloc[0])
+      print(f'Not quite! You have {lives} lives left! Here are some hints:') 
+      if c['Type 1'] == g['Type 1']:
+        print("You have the correct Type 1!")
+      else:
+        print("Your Type 1 isn't correct.")
+      if c['Type 2'] == g['Type 2']:
+        print("You have the correct Type 2!")
+      else:
+        print("Your Type 2 isn't correct.")
+      if c['Generation'] == g['Generation']:
+        print("You have the correct Generation!")
+      elif c['Generation'] < g['Generation']:
+        print("The correct pokemon's generation is lower than the one you guessed.")
+      elif c['Generation'] > g['Generation']:
+        print("The correct pokemon's generation is higher than the one you guessed.")
+      if lives == 2:
+        if c['Legendary'] == g['Legendary']:
+          print("Your guess and the correct pokemon have the same legendary status.")
+        else: 
+          print("Your guess and the correct pokemon don't have the same legendary status.")
+      if lives == 1:
+        print(f"Here's one final big hint. The first letter in the name of the correct pokemon is {hint}")
+  if lives == 0:
+    print(f"You've run out of guesses. The correct pokemon was {correct_answer}.")
+    play_again = input("Do you want to play again? (y/n)").lower()
+    if play_again == "y":
+            play_game()
+    else:
+      print("Thanks for playing!")
+      
+      
+if __name__ == '__main__':
+    play_game()
+      
   
   
   
