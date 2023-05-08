@@ -1,23 +1,37 @@
 #This will be the test code for the function
+
 import pandas as pd
 import random as rand
 
+class Dataframe:
+
+  def __init__(self):
+    with open('Pokemon3.csv', encoding = 'utf-8') as f:
+       df = pd.read_csv(f)
+       self.new_df = df.drop(['#','HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
+                 axis = 1)
 
 
-
-def play_game():
-  with open('pokemon3.csv', encoding = 'utf -8') as f:
+def open_game(file):
+  with open('Pokemon3.csv', encoding = 'utf -8') as f:
     df = pd.read_csv(f)
     new_df = df.drop(['#','HP','Total', 'Attack', 'Defense', 'Sp. Def', 'Speed', 'Sp. Atk' ], 
                  axis = 1)
     sample_info = new_df.sample()
-    c = dict(sample_info.iloc[0])
-    poke = sample_info.sample().iloc[0]['Name']
+   
+  return sample_info
+
+
+def play_game():
+  data_info = Dataframe
+  c = dict(open_game('Pokemon3.csv').iloc[0])
+  poke = open_game('Pokemon3.csv').sample().iloc[0]['Name']
   correct_answer = poke
+  data = Dataframe()
   
+
   lives = 8
 
-  
   while lives > 0:
     player_guess = input('Guess the pokemon: ')
     if player_guess == correct_answer:
@@ -30,7 +44,7 @@ def play_game():
     elif player_guess != correct_answer: 
       lives -= 1
       hint = c['Name'][0]
-      matching_row = new_df.loc[new_df['Name'] == player_guess]
+      matching_row = data.new_df.loc[data.new_df['Name'] == player_guess]
       g = dict(matching_row.iloc[0])
       print(f'Not quite! You have {lives} lives left! Here are some hints:') 
       if c['Type 1'] == g['Type 1']:
@@ -65,7 +79,6 @@ def play_game():
       
 if __name__ == '__main__':
     play_game()
-      
   
   
   
