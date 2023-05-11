@@ -23,3 +23,12 @@ This program is designed to run from the terminal. To run it, open a terminal an
 
 ## Output of this program
 This program is a game designed to test the user's knowledge on various Pokemon. Based on the user's guess, the program will output a series of hints in order to assist the user in correctly identifying the correct Pokemon. At the very end of the game, the game will output what the correct Pokemon is as well as a distribution of the user's guesses in a histogram as well as their guessing statistics in a bar chart.
+
+
+
+## Attribution
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+|   Row 1  |   Data   |   Data   |
+|   Row 2  |   Data   |   Data   |
+
