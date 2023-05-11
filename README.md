@@ -27,8 +27,8 @@ This program is a game designed to test the user's knowledge on various Pokemon.
 
 
 ## Attribution
-| Column 1 | Column 2 | Column 3 |
+| Method/function | Primary author | Techniques demonstrated |
 |----------|----------|----------|
-|   Row 1  |   Data   |   Data   |
-|   Row 2  |   Data   |   Data   |
+|   guessing_stats  |   Zoe Cheng   |   Data visualization   |
+|   visualize_guesses  |   Zoe Cheng   |   Data visualization   |
 
