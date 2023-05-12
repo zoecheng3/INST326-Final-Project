@@ -31,8 +31,8 @@ This program is a game designed to test the user's knowledge on various Pokemon.
 |----------|----------|----------|
 |   guessing_stats  |   Zoe Cheng   |   Data visualization   |
 |   visualize_guesses  |   Zoe Cheng   |   Data visualization   |
-|   guess_poke  |   Jonathan Eng   |   User input   |
-|  switch_turn   |   Justin Clendenin   |   Sequence unpacking   |
+|   guess_poke  |   Jonathan Eng,  Justin Clendenin  |   User input   |
+|  switch_turn   |   Justin Clendenin, Jonathan Eng   |   Sequence unpacking   |
 |   play  |   Justin Clendenin, Jonathan Eng, Zoe Cheng   |   Looping, user input, list manipulation, f strings,    |
-|   __init__  |      |   with statements,    |
+|   __init__  |   Justin Clendenin, Jonathan Eng   |   with statements, optional parameters   |
 
