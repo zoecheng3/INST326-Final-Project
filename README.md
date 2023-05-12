@@ -31,4 +31,8 @@ This program is a game designed to test the user's knowledge on various Pokemon.
 |----------|----------|----------|
 |   guessing_stats  |   Zoe Cheng   |   Data visualization   |
 |   visualize_guesses  |   Zoe Cheng   |   Data visualization   |
+|   guess_poke  |   author   |   Data visualization   |
+|  switch_turn   |   author   |   Data visualization   |
+|   play  |   author   |   Data visualization   |
+|   main  |   author   |   Data visualization   |
 
